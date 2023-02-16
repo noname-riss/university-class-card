@@ -1,12 +1,13 @@
 import { LitElement, html, css } from 'lit';
 
-const logo = new URL('https://www.psu.edu/PSU-mark-navy.jpg', import.meta.url).href;
+const logo = new URL('../assets/PSU-mark-navy.jpg', import.meta.url).href;
 
-class UniversityClassCard extends LitElement {
-  static properties = {
-    header: { type: String },
+export class UniversityClassCard extends LitElement {
+  static get properties () {
+    return{ header: { type: String },
     university: {type: String},
-    class: {type: String}
+    class: {type: String}}
+
   }
 
   static styles = css`

@@ -20,9 +20,62 @@
 </head>
 
 <body>
+  <div class="buttonHolder">
+    <button class="add"> Add Frame </button>
+
+  <button class="chageBG">Change Background</button>
+
+   <button class="chageti">Change Title</button>
+
+  <button class="delete">Delete last card</button>
+</div>
+
   <university-class-card></university-class-card>
 
   <script type="module" src="./src/university-class-card.js"></script>
+
+  <script>
+document.querySelector('.add').addEventListener('click', function(e) {
+  const itemToClone = document.querySelector('.card').cloneNode(true);
+  document.body.appendChild(itemToClone);
+});
+
+// modify name of 1st item
+document.querySelector('.chageti').addEventListener('click', function(e) {
+  let name = prompt("Name: ");
+  if (name) {
+    document.querySelector('.card h1').innerText = name;
+  }
+});
+const bun = document.querySelector('.chageBG');
+
+bun.addEventListener('click', function(e){
+  document.querySelectorAll('.card').forEach((item, index) => {
+    if (!item.classList.contains('newBG')) {
+      item.classList.add('newBG');
+    }
+    else {
+      item.classList.remove('newBG');
+    }
+  });
+});
+// delete the last item
+document.querySelector('.delete').addEventListener('click', function(e) {
+  let wantsTo = confirm("Are you sure?");
+  if (wantsTo) {
+    if (document.querySelector('.card:last-child') !== document.querySelector('.card')) {
+      document.querySelector('.card:last-child').remove();
+    }
+    else {
+      alert("Can't delete last card!");
+    }
+  }
+});
+
+
+
+
+  </script>
 </body>
 
 </html>

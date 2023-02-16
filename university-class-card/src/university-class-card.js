@@ -1,10 +1,12 @@
 import { LitElement, html, css } from 'lit';
+import "@lrnwebcomponents/moar-sarcasm/moar-sarcasm.js";
+import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
 const logo = new URL('../assets/PSU-mark-navy.jpg', import.meta.url).href;
 
 export class UniversityClassCard extends LitElement {
   static get properties () {
-    return{ 
+    return{
       header: { type: String },
     university: {type: String},
     class: {type: String}}
@@ -42,7 +44,7 @@ export class UniversityClassCard extends LitElement {
 .newBG{
   background-color:white;
 }
-  `;} 
+  `;}
 
   constructor() {
     super();
@@ -59,13 +61,10 @@ export class UniversityClassCard extends LitElement {
   <h1>${this.university}</h1>
 <img class="image" src=${logo} alt="Univeristy logo"/>
 <h2>${this.class}</h2>
-<p> Here is the class website for IST 256 and Haxpsu:
-<a href="https://hax.psu.edu/">
+<details class="class_decription">
+  <slot></slot>
+</details>
 
-</a> </p>
-  <button class="button">
-    Details
-</button>
 </div>
 
 

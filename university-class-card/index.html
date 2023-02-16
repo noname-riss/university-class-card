@@ -16,6 +16,7 @@
       background-color: #ededed;
     }
   </style>
+
   <title>university-class-card</title>
 </head>
 
@@ -23,48 +24,59 @@
   <div class="buttonHolder">
     <button class="add"> Add Frame </button>
 
-  <button class="chageBG">Change Background</button>
+  <button class="toggle">Details</button>
 
-   <button class="chageti">Change Title</button>
+   <button class="changetitle">Change Title</button>
 
   <button class="delete">Delete last card</button>
 </div>
 
-  <university-class-card></university-class-card>
 
+  
+
+
+
+<div class="app">
+  <university-class-card>
+    <p> Here is the class website for IST 256 and Haxpsu:
+    <a href="https://hax.psu.edu/">
+    
+    </a> </p>
+  </university-class-card>
+</div>
+  
   <script type="module" src="./src/university-class-card.js"></script>
 
   <script>
 document.querySelector('.add').addEventListener('click', function(e) {
-  const itemToClone = document.querySelector('.card').cloneNode(true);
-  document.body.appendChild(itemToClone);
+  const itemToClone = document.querySelector('university-class-card').cloneNode();
+  document.querySelector('.app').appendChild(itemToClone);
 });
 
 // modify name of 1st item
-document.querySelector('.chageti').addEventListener('click', function(e) {
+document.querySelector('.changetitle').addEventListener('click', function(e) {
   let name = prompt("Name: ");
   if (name) {
-    document.querySelector('.card h1').innerText = name;
+    document.querySelector('university-class-card').class = name;
   }
 });
-const bun = document.querySelector('.chageBG');
-
-bun.addEventListener('click', function(e){
-  document.querySelectorAll('.card').forEach((item, index) => {
-    if (!item.classList.contains('newBG')) {
-      item.classList.add('newBG');
-    }
-    else {
-      item.classList.remove('newBG');
-    }
-  });
+document.querySelector('.toggle').addEventListener('click', (e) => {
+  const details = document.querySelector('university-class-card').shadowRoot.querySelector('details')
+  console.log(details);
+  if (details.getAttribute('open')) {
+    details.removeAttribute('open');
+  }
+  else {
+    details.setAttribute('open','open');    
+  }
 });
+
 // delete the last item
 document.querySelector('.delete').addEventListener('click', function(e) {
   let wantsTo = confirm("Are you sure?");
   if (wantsTo) {
-    if (document.querySelector('.card:last-child') !== document.querySelector('.card')) {
-      document.querySelector('.card:last-child').remove();
+    if (document.querySelector('.app: last-child') !== document.querySelector('university-class-card')) {
+      document.querySelector('.app: last-child').remove();
     }
     else {
       alert("Can't delete last card!");

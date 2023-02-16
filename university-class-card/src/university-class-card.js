@@ -1,12 +1,11 @@
 import { LitElement, html, css } from 'lit';
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+const logo = new URL('https://www.psu.edu/PSU-mark-navy.jpg', import.meta.url).href;
 
 class UniversityClassCard extends LitElement {
   static properties = {
     header: { type: String },
     university: {type: String},
-    logo: {type: String},
     class: {type: String}
   }
 
@@ -46,6 +45,9 @@ class UniversityClassCard extends LitElement {
   constructor() {
     super();
     this.header = 'My app';
+    this.university="Penn State"
+    this.class="IST 256"
+
   }
 
   render() {
@@ -53,8 +55,8 @@ class UniversityClassCard extends LitElement {
 
 <div class="card">
   <h1>${this.university}</h1>
-<img class="image" src="https://www.psu.edu/PSU-mark-navy.jpg" alt="Univeristy logo"/>
-<h1>Penn State Hax</h1>
+<img class="image" src=${logo} alt="Univeristy logo"/>
+<h2>${this.class}</h2>
 <p> Here is the class website for IST 256 and Haxpsu:
 <a href="https://hax.psu.edu/">
 
@@ -63,19 +65,6 @@ class UniversityClassCard extends LitElement {
     Details
 </button>
 </div>
-
-
-
-<div class="buttonHolder">
-    <button class="add"> Add Frame </button>
-
-  <button class="chageBG">Change Background</button>
-
-   <button class="chageti">Change Title</button>
-
-  <button class="delete">Delete last card</button>
-</div>
-
 
 
     `;

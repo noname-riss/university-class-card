@@ -4,13 +4,14 @@ const logo = new URL('../assets/PSU-mark-navy.jpg', import.meta.url).href;
 
 export class UniversityClassCard extends LitElement {
   static get properties () {
-    return{ header: { type: String },
+    return{ 
+      header: { type: String },
     university: {type: String},
     class: {type: String}}
 
   }
 
-  static styles = css`
+  static get styles() {return css`
      .card{
     border: 5px solid black;
     background-color: blue;
@@ -41,13 +42,13 @@ export class UniversityClassCard extends LitElement {
 .newBG{
   background-color:white;
 }
-  `;
+  `;} 
 
   constructor() {
     super();
     this.header = 'My app';
-    this.university="Penn State"
-    this.class="IST 256"
+    this.university='Penn State';
+    this.class='IST 256';
 
   }
 

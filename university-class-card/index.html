@@ -75,8 +75,8 @@ document.querySelector('.toggle').addEventListener('click', (e) => {
 document.querySelector('.delete').addEventListener('click', function(e) {
   let wantsTo = confirm("Are you sure?");
   if (wantsTo) {
-    if (document.querySelector('.app: last-child') !== document.querySelector('university-class-card')) {
-      document.querySelector('.app: last-child').remove();
+    if (document.querySelector('app :last-child') !== document.querySelector('university-class-card')) {
+      document.querySelector('app :last-child').remove();
     }
     else {
       alert("Can't delete last card!");

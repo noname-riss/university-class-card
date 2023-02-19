@@ -9,7 +9,10 @@ export class UniversityClassCard extends LitElement {
     return{
       header: { type: String },
     university: {type: String},
-    class: {type: String}}
+    class: {type: String},
+    bottomImageText: {type: String},
+    topImageText: {type: String}
+    }
 
   }
 
@@ -51,7 +54,8 @@ export class UniversityClassCard extends LitElement {
     this.header = 'My app';
     this.university='Penn State';
     this.class='IST 256';
-
+    this.bottomImageText='Penn State';
+    this.topImageText='We Are';
   }
 
   render() {
@@ -59,7 +63,8 @@ export class UniversityClassCard extends LitElement {
 
 <div class="card">
   <h1>${this.university}</h1>
-<img class="image" src=${logo} alt="Univeristy logo"/>
+<meme-maker alt="Univeristy logo" image-url=${logo} top-text=${this.topImageText} bottom-text=${this.bottomImageText}>
+</meme-maker>
 <h2>${this.class}</h2>
 <details class="class_decription">
   <slot></slot>

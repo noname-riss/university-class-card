@@ -32,7 +32,7 @@
 </div>
 
 
-  
+
 
 
 
@@ -40,11 +40,11 @@
   <university-class-card>
     <p> Here is the class website for IST 256 and Haxpsu:
     <a href="https://hax.psu.edu/">
-    
+
     </a> </p>
   </university-class-card>
 </div>
-  
+
   <script type="module" src="./src/university-class-card.js"></script>
 
   <script>
@@ -67,7 +67,7 @@ document.querySelector('.toggle').addEventListener('click', (e) => {
     details.removeAttribute('open');
   }
   else {
-    details.setAttribute('open','open');    
+    details.setAttribute('open','open');
   }
 });
 
@@ -75,8 +75,8 @@ document.querySelector('.toggle').addEventListener('click', (e) => {
 document.querySelector('.delete').addEventListener('click', function(e) {
   let wantsTo = confirm("Are you sure?");
   if (wantsTo) {
-    if (document.querySelector('app :last-child') !== document.querySelector('university-class-card')) {
-      document.querySelector('app :last-child').remove();
+    if (document.querySelector('.app').lastChild !== document.querySelector('university-class-card')) {
+     document.querySelector('.app').lastChild.remove();
     }
     else {
       alert("Can't delete last card!");

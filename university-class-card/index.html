@@ -14,7 +14,10 @@
       padding: 0;
       font-family: sans-serif;
       background-color: #ededed;
+      --university-class-card-alternate-background-color: white;
     }
+
+
   </style>
 
   <title>university-class-card</title>
@@ -27,6 +30,8 @@
   <button class="toggle">Details</button>
 
    <button class="changetitle">Change Title</button>
+
+   <button class="changeBG">Change Background Color</button>
 
   <button class="delete">Delete last card</button>
 </div>
@@ -60,6 +65,22 @@ document.querySelector('.changetitle').addEventListener('click', function(e) {
     document.querySelector('university-class-card').class = name;
   }
 });
+
+
+document.querySelector('.changeBG').addEventListener('click', function(e) {
+
+  if (document.querySelector('university-class-card').alternateColor) {
+    document.querySelector('university-class-card').alternateColor=false;
+  }
+  else
+  {
+    document.querySelector('university-class-card').alternateColor=true;
+  }
+});
+
+
+
+
 document.querySelector('.toggle').addEventListener('click', (e) => {
   const details = document.querySelector('university-class-card').shadowRoot.querySelector('details')
   console.log(details);

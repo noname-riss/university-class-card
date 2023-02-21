@@ -6,17 +6,28 @@ const logo = new URL('../assets/PSU-mark-navy.jpg', import.meta.url).href;
 
 export class UniversityClassCard extends LitElement {
   static get properties () {
+
+
     return{
       header: { type: String },
     university: {type: String},
     class: {type: String},
     bottomImageText: {type: String},
-    topImageText: {type: String}
+    topImageText: {type: String},
+    alternateColor: {type: Boolean,
+    reflect: true,
+    attribute: "alternate-color"
+  }
     }
 
   }
 
   static get styles() {return css`
+
+:host([alternate-color]) .card{
+  background-color: var(--university-class-card-alternate-background-color,white);
+}
+
      .card{
     border: 5px solid black;
     background-color: blue;
@@ -44,9 +55,7 @@ export class UniversityClassCard extends LitElement {
   background-color:grey;
 }
 
-.newBG{
-  background-color:white;
-}
+
   `;}
 
   constructor() {
@@ -56,6 +65,7 @@ export class UniversityClassCard extends LitElement {
     this.class='IST 256';
     this.bottomImageText='Penn State';
     this.topImageText='We Are';
+    this.alternateColor=false;
   }
 
   render() {

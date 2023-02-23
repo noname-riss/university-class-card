@@ -23,7 +23,7 @@ export class UniversityClassCard extends LitElement {
   }
 
   toggleEvent(e){
-    const state=this.shadowRoot.querySelector('class_decription').getAttribute('open')===''? true:false;
+    const state=this.shadowRoot.querySelector('class_decription').getAttribute('open')==='' ? true : false;
     this.opened=state;
   }
 
@@ -98,7 +98,7 @@ updated(changedProperties){
 <meme-maker alt="Univeristy logo" image-url=${logo} top-text=${this.topImageText} bottom-text=${this.bottomImageText}>
 </meme-maker>
 <h2>${this.class}</h2>
-<details class="class_decription" .open="${this.opened}" @toggle="${this.toggleEvent}"></details>
+<details class="class_decription" .open=${this.opened} @toggle=${this.toggleEvent} ></details>
   <slot></slot>
 </details>
 

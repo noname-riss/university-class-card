@@ -53,6 +53,12 @@
   <script type="module" src="./src/university-class-card.js"></script>
 
   <script>
+
+document.body.addEventListener('opened-changed',(e)=>{
+document.querySelector('.toggle').innerText= e.detail.value ? "Hide Details" : "Show Details";
+});
+
+
 document.querySelector('.add').addEventListener('click', function(e) {
   const itemToClone = document.querySelector('university-class-card').cloneNode();
   document.querySelector('.app').appendChild(itemToClone);
@@ -85,11 +91,9 @@ document.querySelector('.toggle').addEventListener('click', (e) => {
   const details = document.querySelector('university-class-card').shadowRoot.querySelector('details')
   if (details.getAttribute('open')) {
     details.removeAttribute('open');
-    document.querySelector('.toggle').innerHTML="Hide Details";
   }
   else {
     details.setAttribute('open','open');
-    document.querySelector('.toggle').innerHTML="Show Details";
   }
 });
 

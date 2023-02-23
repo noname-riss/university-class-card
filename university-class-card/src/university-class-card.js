@@ -16,11 +16,32 @@ export class UniversityClassCard extends LitElement {
     topImageText: {type: String},
     alternateColor: {type: Boolean,
     reflect: true,
-    attribute: "alternate-color"
-  }
+    attribute: "alternate-color"},
+    opened: {type: Boolean, reflect: true}
     }
 
   }
+
+  toggleEvent(e){
+    const state=this.shadowRoot.querySelector('class_decription').getAttribute('open')===''? true:false;
+    this.opened=state;
+  }
+
+
+updated(changedProperties){
+  changedProperties.forEach(oldValue,propName => {
+    if(propName==="opened"){
+      this.dispatchEvent(new CustomEvent('opened-changed',{
+        composed: true,
+        bubbles: true,
+        cancelable: true,
+        detail:{
+          value: this[propName]
+        }
+      }))
+    }
+  });
+}
 
   static get styles() {return css`
 
@@ -66,6 +87,7 @@ export class UniversityClassCard extends LitElement {
     this.bottomImageText='Penn State';
     this.topImageText='We Are';
     this.alternateColor=false;
+    this.opened=false;
   }
 
   render() {
@@ -76,7 +98,7 @@ export class UniversityClassCard extends LitElement {
 <meme-maker alt="Univeristy logo" image-url=${logo} top-text=${this.topImageText} bottom-text=${this.bottomImageText}>
 </meme-maker>
 <h2>${this.class}</h2>
-<details class="class_decription">
+<details class="class_decription" .open="${this.opened}" @toggle="${this.toggleEvent}"></details>
   <slot></slot>
 </details>
 

@@ -25,7 +25,7 @@ export class UniversityClassCard extends LitElement {
   toggleEvent(e){
     console.log(this.shadowRoot.querySelector('details').getAttribute('open'));
     const state=this.shadowRoot.querySelector('details').getAttribute('open') === '' ? true : false;
-    
+
     console.log(state);
     this.opened=state;
   }
@@ -42,7 +42,7 @@ updated(changedProperties){
           value: this[propName]
         }
       }))
-      
+
     }
   });
 }
@@ -56,7 +56,7 @@ updated(changedProperties){
      .card{
     border: 5px solid black;
     background-color: blue;
-    display: flex;
+    display: inline-flex;
     margin: 82px auto 32px;
     padding: 0 16px;
     max-width: 400px;

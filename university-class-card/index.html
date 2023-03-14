@@ -54,17 +54,20 @@
 
   <script>
 
+
+//Changes the text on button to open details based on its current state
 document.body.addEventListener('opened-changed',(e)=>{
 document.querySelector('.toggle').innerText= e.detail.value ? "Hide Details" : "Show Details";
 });
 
+//Uses custom event to open the details section
 document.querySelector('.toggle').addEventListener('click', (e) => {
   const details = document.querySelector('university-class-card');
   details.opened=!details.opened;
  
 });
 
-
+// Add another copy to the screen
 document.querySelector('.add').addEventListener('click', function(e) {
   const itemToClone = document.querySelector('university-class-card').cloneNode();
   document.querySelector('.app').appendChild(itemToClone);
@@ -78,7 +81,7 @@ document.querySelector('.changetitle').addEventListener('click', function(e) {
   }
 });
 
-
+// Changes the background color
 document.querySelector('.changeBG').addEventListener('click', function(e) {
 
   if (document.querySelector('university-class-card').alternateColor) {
